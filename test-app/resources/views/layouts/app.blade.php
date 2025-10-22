@@ -521,8 +521,7 @@
         .variant-size,
         .variant-stock,
         .variant-price,
-        .variant-discount,
-        .variant-action {
+        .variant-discount {
             padding: 0 8px;
         }
         
