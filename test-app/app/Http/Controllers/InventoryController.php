@@ -22,7 +22,10 @@ class InventoryController extends Controller
                 'markets' => 2,
                 'category' => 'Activewear Tops',
                 'vendor' => 'Encore',
-                'variants' => []
+                'variants' => [
+                     ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'M', 'stock' => '0 In Stock', 'last_update' => null, 'price' => '64.00$', 'discount' => 0],
+                     ['name' => 'Navy', 'color' => '#001F3F', 'size' => 'L', 'stock' => '0 In Stock', 'last_update' => null, 'price' => '64.00$', 'discount' => 0],
+                ]
             ],
             [
                 'id' => 2,
@@ -93,7 +96,11 @@ class InventoryController extends Controller
                 'markets' => 2,
                 'category' => 'Outerwear',
                 'vendor' => 'Element',
-                'variants' => []
+                'variants' => [
+                    ['name' => 'Olive', 'color' => '#808000', 'size' => 'L', 'stock' => '12 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 0],
+                    ['name' => 'Black', 'color' => '#000000', 'size' => 'M', 'stock' => '10 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 5],
+                    ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'XL', 'stock' => '12 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 0],
+                ]
             ],
             [
                 'id' => 6,
@@ -107,7 +114,11 @@ class InventoryController extends Controller
                 'markets' => 5,
                 'category' => 'Outerwear',
                 'vendor' => 'Element',
-                'variants' => []
+                'variants' => [
+                    ['name' => 'Olive', 'color' => '#808000', 'size' => 'L', 'stock' => '12 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 0],
+                    ['name' => 'Black', 'color' => '#000000', 'size' => 'M', 'stock' => '10 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 5],
+                    ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'XL', 'stock' => '12 In Stock', 'last_update' => '25 AUG 25', 'price' => '80.00$', 'discount' => 0],
+                ]
             ],
             [
                 'id' => 7,
@@ -121,7 +132,10 @@ class InventoryController extends Controller
                 'markets' => 7,
                 'category' => 'Activewear Tops',
                 'vendor' => 'Power',
-                'variants' => []
+                'variants' => [
+                    ['name' => 'Black', 'color' => '#000000', 'size' => 'M', 'stock' => '25 In Stock', 'last_update' => '25 AUG 25', 'price' => '60.00$', 'discount' => 10],
+                    ['name' => 'Blue', 'color' => '#2196F3', 'size' => 'L', 'stock' => '20 In Stock', 'last_update' => '25 AUG 25', 'price' => '60.00$', 'discount' => 5]
+                ]
             ],
             [
                 'id' => 8,
@@ -135,7 +149,11 @@ class InventoryController extends Controller
                 'markets' => 3,
                 'category' => 'Activewear Bottoms',
                 'vendor' => 'Swift',
-                'variants' => []
+                'variants' => [
+                    ['name' => 'Black', 'color' => '#000000', 'size' => 'S', 'stock' => '8 In Stock', 'last_update' => '25 AUG 25', 'price' => '45.00$', 'discount' => 0],
+                    ['name' => 'Blue', 'color' => '#2196F3', 'size' => 'M', 'stock' => '7 In Stock', 'last_update' => '25 AUG 25', 'price' => '45.00$', 'discount' => 5],
+                    ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'L', 'stock' => '8 In Stock', 'last_update' => '25 AUG 25', 'price' => '45.00$', 'discount' => 0],
+                ]
             ],
             [
                 'id' => 9,
@@ -149,7 +167,11 @@ class InventoryController extends Controller
                 'markets' => 8,
                 'category' => 'Activewear Bottoms',
                 'vendor' => 'Swift',
-                'variants' => []
+                'variants' => [
+                    ['name' => 'Black', 'color' => '#000000', 'size' => 'M', 'stock' => '35 In Stock', 'last_update' => '25 AUG 25', 'price' => '65.00$', 'discount' => 0],
+                    ['name' => 'Navy', 'color' => '#001F3F', 'size' => 'L', 'stock' => '33 In Stock', 'last_update' => '25 AUG 25', 'price' => '65.00$', 'discount' => 10],
+                    ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'XL', 'stock' => '30 In Stock', 'last_update' => '25 AUG 25', 'price' => '65.00$', 'discount' => 0]
+                ]
             ]
         ];
         

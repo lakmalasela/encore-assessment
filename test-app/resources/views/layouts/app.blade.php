@@ -94,12 +94,28 @@
         
         /* Header */
         .page-header {
-            background-color: white;
+            /* background-color: white;
             padding: 20px 32px;
             border-bottom: 1px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
+            align-items: center; */
+            position: relative; /* make it the parent reference */
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            background-color: white;
+            padding: 20px 32px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .inventory-header{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
         }
         
         .page-header h1 {
@@ -803,7 +819,7 @@
                         <path d="M3 12h18M3 6h18M3 18h18"/>
                     </svg>
                 </button>
-                <h1>Inventory</h1>
+                <h1 style="inventory-header">Inventory</h1>
                 <div class="header-actions">
                     <button class="notification-bell">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="#6b7280">
