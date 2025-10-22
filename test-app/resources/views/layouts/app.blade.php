@@ -109,7 +109,7 @@
             transform: translateX(-50%);
             margin: 0;
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 700;
             color: #111827;
             pointer-events: none;
         }
