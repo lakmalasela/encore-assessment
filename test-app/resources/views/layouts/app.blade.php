@@ -441,6 +441,86 @@
             color: #6b7280;
         }
         
+        /* Variant Rows */
+        .variant-row {
+            background-color: #f9fafb;
+        }
+        
+        .variant-cell {
+            padding: 0 !important;
+        }
+        
+        .variant-container {
+            padding: 16px 20px;
+        }
+        
+        .variant-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .variant-header-cell {
+            padding: 0 8px;
+        }
+        
+        .variant-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            font-size: 13px;
+            color: #374151;
+        }
+        
+        .variant-item:hover {
+            background-color: #f9fafb;
+        }
+        
+        .variant-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 8px;
+            font-weight: 500;
+        }
+        
+        .color-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .variant-size,
+        .variant-stock,
+        .variant-price,
+        .variant-discount,
+        .variant-action {
+            padding: 0 8px;
+        }
+        
+        .variant-stock {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .variant-stock .last-update {
+            font-size: 11px;
+            color: #9ca3af;
+        }
+        
         /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
@@ -617,6 +697,32 @@
             .page-btn {
                 padding: 6px 10px;
                 font-size: 12px;
+            }
+            
+            /* Variant Rows Mobile */
+            .variant-container {
+                padding: 12px;
+                overflow-x: auto;
+            }
+            
+            .variant-header,
+            .variant-item {
+                min-width: 700px;
+            }
+            
+            .variant-header {
+                font-size: 11px;
+                padding: 10px 12px;
+            }
+            
+            .variant-item {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+            
+            .color-indicator {
+                width: 20px;
+                height: 20px;
             }
         }
         

@@ -17,7 +17,7 @@
         </thead>
         <tbody id="tableBody">
             @forelse($products as $product)
-                <tr>
+                <tr class="product-row" data-product-id="{{ $product['id'] }}">
                     <td>
                         <input type="checkbox" value="{{ $product['id'] }}">
                     </td>
@@ -44,7 +44,7 @@
                     <td>{{ $product['category'] }}</td>
                     <td>{{ $product['vendor'] }}</td>
                     <td>
-                        <button class="action-btn" title="View details">
+                        <button class="action-btn toggle-details" title="View details" onclick="toggleVariants({{ $product['id'] }})">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
                                 <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
@@ -52,6 +52,45 @@
                         </button>
                     </td>
                 </tr>
+                @if(count($product['variants']) > 0)
+                    <tr class="variant-row" id="variants-{{ $product['id'] }}" style="display: none;">
+                        <td colspan="9" class="variant-cell">
+                            <div class="variant-container">
+                                <div class="variant-header">
+                                    <div class="variant-header-cell" style="width: 200px;">Variants</div>
+                                    <div class="variant-header-cell" style="width: 100px;">Size</div>
+                                    <div class="variant-header-cell" style="flex: 1;">Stock</div>
+                                    <div class="variant-header-cell" style="width: 120px;">Prices</div>
+                                    <div class="variant-header-cell" style="width: 120px;">Discount</div>
+                                    <div class="variant-header-cell" style="width: 60px;"></div>
+                                </div>
+                                @foreach($product['variants'] as $variant)
+                                    <div class="variant-item">
+                                        <div class="variant-name" style="width: 200px;">
+                                            <span class="color-indicator" style="background-color: {{ $variant['color'] }}; {{ $variant['color'] == '#FFFFFF' ? 'border: 1px solid #ddd;' : '' }}"></span>
+                                            {{ $variant['name'] }}
+                                        </div>
+                                        <div class="variant-size" style="width: 100px;">{{ $variant['size'] }}</div>
+                                        <div class="variant-stock" style="flex: 1;">
+                                            {{ $variant['stock'] }}
+                                            <span class="last-update">Last Update - {{ $variant['last_update'] }}</span>
+                                        </div>
+                                        <div class="variant-price" style="width: 120px;">{{ $variant['price'] }}</div>
+                                        <div class="variant-discount" style="width: 120px;">{{ $variant['discount'] }}</div>
+                                        <div class="variant-action" style="width: 60px;">
+                                            <button class="action-btn" title="View variant details">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </td>
+                    </tr>
+                @endif
             @empty
                 <tr>
                     <td colspan="9" class="loading">No products found.</td>
