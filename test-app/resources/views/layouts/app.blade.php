@@ -86,7 +86,8 @@
         
         /* Main Content */
         .main-content {
-            margin-left: 220px;
+            width: 101rem;
+            margin-left: 16rem;
             min-height: 100vh;
             background-color: #f9fafb;
         }
@@ -439,9 +440,250 @@
             padding: 40px;
             color: #6b7280;
         }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            color: #374151;
+        }
+        
+        .mobile-menu-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Mobile Overlay */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .sidebar-overlay.active {
+            display: block;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+            }
+            
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 20px;
+            }
+            
+            .content-container {
+                padding: 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 16px;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            
+            .page-header h1 {
+                font-size: 18px;
+                flex: 1;
+            }
+            
+            .header-actions {
+                gap: 12px;
+            }
+            
+            .user-name {
+                display: none;
+            }
+            
+            /* Filter Section */
+            .filter-section {
+                padding: 16px;
+            }
+            
+            .filter-row {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+                margin-bottom: 12px;
+            }
+            
+            .filter-row:last-child {
+                margin-bottom: 0;
+            }
+            
+            .filter-group {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .search-input {
+                width: 100%;
+            }
+            
+            .status-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                gap: 4px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .status-tab {
+                white-space: nowrap;
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            /* Table Styles */
+            .inventory-table {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .table {
+                min-width: 900px;
+            }
+            
+            .table thead th {
+                padding: 10px 12px;
+                font-size: 11px;
+            }
+            
+            .table tbody td {
+                padding: 12px;
+                font-size: 12px;
+            }
+            
+            .product-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .product-info h6 {
+                font-size: 12px;
+            }
+            
+            .product-info p {
+                font-size: 11px;
+            }
+            
+            /* Pagination */
+            .pagination-container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 16px;
+                align-items: flex-start;
+            }
+            
+            .pagination-controls {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .pagination-info {
+                font-size: 12px;
+            }
+            
+            .page-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 12px;
+            }
+            
+            .page-header h1 {
+                font-size: 16px;
+            }
+            
+            .content-container {
+                padding: 12px;
+            }
+            
+            .filter-section {
+                padding: 12px;
+            }
+            
+            .filter-label {
+                font-size: 12px;
+                width: 100%;
+                margin-bottom: 4px;
+            }
+            
+            .filter-select {
+                font-size: 12px;
+                padding: 6px 28px 6px 10px;
+            }
+            
+            .btn-action {
+                padding: 8px 12px;
+                font-size: 12px;
+                flex: 1;
+            }
+            
+            .status-tab {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+            
+            .table {
+                min-width: 800px;
+            }
+            
+            .product-cell {
+                gap: 8px;
+            }
+            
+            .product-image {
+                width: 36px;
+                height: 36px;
+            }
+            
+            #pageNumbers .page-btn {
+                display: none;
+            }
+            
+            #pageNumbers .page-btn.active {
+                display: inline-block;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="d-flex">
         {{-- Sidebar --}}
         @include('partials.sidebar')
@@ -450,6 +692,11 @@
         <div class="main-content">
             {{-- Header --}}
             <div class="page-header">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
                 <h1>Inventory</h1>
                 <div class="header-actions">
                     <button class="notification-bell">
@@ -473,5 +720,36 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
+        
+        mobileMenuToggle.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+        
+        // Close sidebar when clicking a link (mobile)
+        document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    toggleSidebar();
+                }
+            });
+        });
+        
+        // Close sidebar on window resize if screen is large
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
