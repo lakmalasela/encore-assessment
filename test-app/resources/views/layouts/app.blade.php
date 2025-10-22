@@ -589,8 +589,10 @@
         @media (max-width: 768px) {
             .page-header {
                 padding: 16px;
-                flex-wrap: wrap;
-                gap: 12px;
+            }
+            
+            .mobile-menu-toggle {
+                z-index: 10;
             }
             
             .inventory-header {
@@ -601,10 +603,26 @@
             
             .header-actions {
                 gap: 12px;
+                z-index: 10;
             }
             
             .user-name {
                 display: none;
+            }
+            
+            .user-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 13px;
+            }
+            
+            .notification-bell {
+                padding: 6px;
+            }
+            
+            .notification-bell svg {
+                width: 18px;
+                height: 18px;
             }
             
             /* Filter Section */
@@ -739,6 +757,33 @@
             
             .inventory-header {
                 font-size: 16px;
+                max-width: 60%;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .mobile-menu-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .user-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            
+            .notification-bell svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .notification-badge {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
             }
             
             .content-container {
