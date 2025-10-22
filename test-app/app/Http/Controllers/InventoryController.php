@@ -17,7 +17,7 @@ class InventoryController extends Controller
         $products = [
             [
                 'id' => 1,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIyOP6n1UQ-_8yg7N7qGS-KJ2iR2wpEMxQeQ&s',
                 'name' => "Men's Pro Long Sleeve",
                 'description' => 'Performance Shirt in DexFlex Lite',
                 'status' => 'Draft',
@@ -29,7 +29,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 2,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE3pLxFnSsYkTH8d9RhbroKMkwndCG2QZ5Mw&s',
                 'name' => "Women's Pro Long Sleeve",
                 'description' => 'Performance Shirt in DexFlex Lite',
                 'status' => 'Active',
@@ -42,7 +42,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 3,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTd2JjxOEpDFfnG0kALVjPU5BqBt5wW15S5g&s',
                 'name' => "Men's Short Sleeve",
                 'description' => 'Performance Shirt in CoolTech Fabric',
                 'status' => 'Active',
@@ -55,7 +55,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 4,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRFA0BqBYFRTWlg2gHGCx-T8wVkbZiNI-yPA&s',
                 'name' => "Women's Tank Top",
                 'description' => 'Breathable Fabric',
                 'status' => 'Active',
@@ -68,7 +68,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 5,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCv7pKurFfzg4K-jWCNm_5Zn5ntd3uP49kg&s',
                 'name' => "Men's Full Zip",
                 'description' => 'Windbreaker Jacket',
                 'status' => 'Active',
@@ -81,7 +81,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 6,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKtBh8m4JOMhXg5x2nT2avy6d9vg59WgSiPg&s',
                 'name' => "Women's Lightweight",
                 'description' => 'Hoodie in Soft Fleece',
                 'status' => 'Active',
@@ -94,7 +94,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 7,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://thenx.com/cdn/shop/files/thenx_compression_tee1_ls.png?v=1717479151',
                 'name' => "Men's Compression",
                 'description' => 'Sleeve Top',
                 'status' => 'Active',
@@ -107,7 +107,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 8,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7tb_aDsE9TjQ2TpOk1xS5tatBV3mMwa1JBg&s',
                 'name' => "Women's Running",
                 'description' => 'Shorts with Pockets',
                 'status' => 'Active',
@@ -120,7 +120,7 @@ class InventoryController extends Controller
             ],
             [
                 'id' => 9,
-                'image' => 'https://via.placeholder.com/50',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNIImTfAUmHuIEj8PhAHFeVhayDiQxoakG_g&s',
                 'name' => "Men's Jogger",
                 'description' => 'Pants in Performance Fabric',
                 'status' => 'Active',
