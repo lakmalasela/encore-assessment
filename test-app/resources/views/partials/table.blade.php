@@ -5,14 +5,16 @@
 
     .inventory-table thead th {
         background-color: #d9d9d9 !important;
-        color: #000 !important;
         border-color: #bfbfbf !important;
         font-weight: 600 !important;
     }
 
-    /* Variant Row Styles */
     .variant-header-row {
         background-color: #f3f4f6 !important;
+    }
+
+    tr.variant-header-row td {
+        background-color:#d9d9d9 !important;
     }
 
     .variant-header-row td {
