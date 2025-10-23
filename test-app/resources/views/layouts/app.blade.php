@@ -23,16 +23,62 @@
             width: 220px;
             height: 100vh;
             position: fixed;
-            background-color: #1f2937;
+            background-color: #000000;
             color: white;
             display: flex;
             flex-direction: column;
             z-index: 1000;
+            transition: width 0.3s ease;
+        }
+        
+        .sidebar.collapsed {
+            width: 70px;
+        }
+        
+        .sidebar-toggle {
+            position: absolute;
+            top: 24px;
+            right: -12px;
+            width: 24px;
+            height: 24px;
+            background-color: #000000;
+            border: 2px solid #333333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-toggle:hover {
+            background-color: #1a1a1a;
+            border-color: #444444;
+        }
+        
+        .sidebar-toggle svg {
+            width: 12px;
+            height: 12px;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-toggle svg {
+            transform: rotate(180deg);
         }
         
         .sidebar-brand {
             padding: 24px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .sidebar.collapsed .sidebar-brand {
+            padding: 24px 10px;
+            text-align: center;
         }
         
         .sidebar-brand h5 {
@@ -40,6 +86,12 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             color: white;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-brand h5 {
+            opacity: 0;
+            font-size: 0;
         }
         
         .sidebar-brand .brand-subtitle {
@@ -62,9 +114,18 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             border-left: 3px solid transparent;
             font-size: 14px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .sidebar.collapsed .sidebar-nav .nav-link {
+            padding: 12px 0;
+            justify-content: center;
+            gap: 0;
         }
         
         .sidebar-nav .nav-link:hover {
@@ -82,14 +143,58 @@
             width: 18px;
             height: 18px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-nav .nav-link span {
+            transition: opacity 0.3s ease, width 0.3s ease;
+            display: inline-block;
+        }
+        
+        .sidebar.collapsed .sidebar-nav .nav-link span {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        
+        /* Tooltip for collapsed sidebar */
+        .sidebar.collapsed .sidebar-nav .nav-link {
+            position: relative;
+        }
+        
+        .sidebar.collapsed .sidebar-nav .nav-link::after {
+            content: attr(data-title);
+            position: absolute;
+            left: 70px;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1002;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar.collapsed .sidebar-nav .nav-link:hover::after {
+            opacity: 1;
         }
         
         /* Main Content */
         .main-content {
-            width: 101rem;
-            margin-left: 16rem;
+            width: calc(100% - 220px);
+            margin-left: 220px;
             min-height: 100vh;
             background-color: #f9fafb;
+            transition: margin-left 0.3s ease, width 0.3s ease;
+        }
+        
+        .sidebar.collapsed ~ .main-content {
+            margin-left: 70px;
+            width: calc(100% - 70px);
         }
         
         /* Header */
@@ -565,12 +670,22 @@
             }
             
             .sidebar {
+                width: 220px !important;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
             }
             
             .sidebar.active {
                 transform: translateX(0);
+            }
+            
+            .sidebar.collapsed ~ .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .sidebar-toggle {
+                display: none;
             }
             
             .mobile-menu-toggle {
@@ -878,24 +993,41 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Desktop sidebar collapse toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        // Load saved sidebar state from localStorage
+        const savedSidebarState = localStorage.getItem('sidebarCollapsed');
+        if (savedSidebarState === 'true') {
+            sidebar.classList.add('collapsed');
+        }
+        
+        // Toggle sidebar collapse
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            // Save state to localStorage
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            localStorage.setItem('sidebarCollapsed', isCollapsed);
+        });
+        
         // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const sidebar = document.querySelector('.sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         
-        function toggleSidebar() {
+        function toggleMobileSidebar() {
             sidebar.classList.toggle('active');
             sidebarOverlay.classList.toggle('active');
         }
         
-        mobileMenuToggle.addEventListener('click', toggleSidebar);
-        sidebarOverlay.addEventListener('click', toggleSidebar);
+        mobileMenuToggle.addEventListener('click', toggleMobileSidebar);
+        sidebarOverlay.addEventListener('click', toggleMobileSidebar);
         
         // Close sidebar when clicking a link (mobile)
         document.querySelectorAll('.sidebar .nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 1024) {
-                    toggleSidebar();
+                    toggleMobileSidebar();
                 }
             });
         });
