@@ -52,6 +52,10 @@
         border-radius: 50%;
         flex-shrink: 0;
     }
+    .last-update-span{
+        color: #00BFFF;
+        font-weight: 600;
+    }
 </style>
 
 
@@ -97,7 +101,7 @@
                     <td>
                         <div class="inventory-text">{{ $product['inventory'] }}</div>
                         @if(isset($product['last_update']) && $product['last_update'])
-                            <span class="last-update">Last Update - {{ $product['last_update'] }}</span>
+                            <span class="last-update">Last Update - <span style="color: #00BFFF; font-weight: 600;">{{ $product['last_update'] }}</span></span>
                         @endif
                     </td>
                     <td class="text-center">{{ $product['sales_channels'] }}</td>
@@ -139,7 +143,7 @@
                             <td>{{ $variant['size'] }}</td>
                             <td>
                                 <div>{{ $variant['stock'] }}</div>
-                                <span class="last-update">Last Update - {{ $variant['last_update'] }}</span>
+                                <span class="last-update">Last Update - <span class="last-update-span">{{ $variant['last_update'] }}</span></span>
                             </td>
                             <td>{{ $variant['price'] }}</td>
                             <!-- <td>{{ $product['category'] }}</td> -->

@@ -23,8 +23,8 @@ class InventoryController extends Controller
                 'category' => 'Activewear Tops',
                 'vendor' => 'Encore',
                 'variants' => [
-                     ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'M', 'stock' => '0 In Stock', 'last_update' => null, 'price' => '64.00$', 'discount' => 0],
-                     ['name' => 'Navy', 'color' => '#001F3F', 'size' => 'L', 'stock' => '0 In Stock', 'last_update' => null, 'price' => '64.00$', 'discount' => 0],
+                     ['name' => 'Gray', 'color' => '#9E9E9E', 'size' => 'M', 'stock' => '0 In Stock', 'last_update' => '23 AUG 25', 'price' => '64.00$', 'discount' => 0],
+                     ['name' => 'Navy', 'color' => '#001F3F', 'size' => 'L', 'stock' => '0 In Stock', 'last_update' => '23 AUG 25', 'price' => '64.00$', 'discount' => 0],
                 ]
             ],
             [
