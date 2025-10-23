@@ -122,12 +122,12 @@
                     <tr class="variant-header-row" id="variants-{{ $product['id'] }}" style="display: none;">
                         <td></td>
                         <td></td>
-                        <td class="variant-header-cell"><strong>Variants</strong></td>
-                        <td class="variant-header-cell"><strong>Size</strong></td>
-                        <td class="variant-header-cell"><strong>Stock</strong></td>
-                        <td class="variant-header-cell"><strong>Prices</strong></td>
+                        <td class="variant-header-cell">Variants</td>
+                        <td class="variant-header-cell">Size</td>
+                        <td class="variant-header-cell">Stock</td>
+                        <td class="variant-header-cell">Prices</td>
                         <!-- <td class="variant-header-cell"><strong>Category</strong></td> -->
-                        <td class="variant-header-cell"><strong>Discount</strong></td>
+                        <td class="variant-header-cell">Discount</td>
                         <td></td>
                     </tr>
                     @foreach($product['variants'] as $variant)
