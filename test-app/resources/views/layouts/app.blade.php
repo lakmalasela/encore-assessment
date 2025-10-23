@@ -307,6 +307,15 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            padding: 2px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4rem;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+        }
+        
+        .filter-item:hover {
+            border-color: #d1d5db;
         }
         
         .filter-label {
