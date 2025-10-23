@@ -121,7 +121,7 @@
                         <td class="variant-header-cell"><strong>Variants</strong></td>
                         <td class="variant-header-cell"><strong>Size</strong></td>
                         <td class="variant-header-cell"><strong>Stock</strong></td>
-                        <td class="variant-header-cell" colspan="2"><strong>Prices</strong></td>
+                        <td class="variant-header-cell"><strong>Prices</strong></td>
                         <!-- <td class="variant-header-cell"><strong>Category</strong></td> -->
                         <td class="variant-header-cell"><strong>Discount</strong></td>
                         <td></td>
@@ -141,7 +141,7 @@
                                 <div>{{ $variant['stock'] }}</div>
                                 <span class="last-update">Last Update - {{ $variant['last_update'] }}</span>
                             </td>
-                            <td colspan="2">{{ $variant['price'] }}</td>
+                            <td>{{ $variant['price'] }}</td>
                             <!-- <td>{{ $product['category'] }}</td> -->
                             <td>{{ $variant['discount'] }}</td>
                             <td></td>
