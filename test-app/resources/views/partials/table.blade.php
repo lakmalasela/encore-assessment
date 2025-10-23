@@ -5,6 +5,7 @@
                 <th style="width: 40px;">
                     <input type="checkbox" id="selectAll">
                 </th>
+                <th></th>
                 <th>Product</th>
                 <th style="width: 120px;">Status</th>
                 <th>Inventory</th>
@@ -22,8 +23,11 @@
                         <input type="checkbox" value="{{ $product['id'] }}">
                     </td>
                     <td>
+                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="product-image">
+                    </td>
+                    <td>
                         <div class="product-cell">
-                            <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="product-image">
+                            
                             <div class="product-info">
                                 <h6>{{ $product['name'] }}</h6>
                                 <p>{{ $product['description'] }}</p>
