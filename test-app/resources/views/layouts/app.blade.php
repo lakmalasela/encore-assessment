@@ -397,6 +397,8 @@
         .status-tab.active {
             color: #111827;
             font-weight: 500;
+            background-color: #d9d9d9;
+            border-radius: 9px;
         }
         
         .status-tab.active::after {
