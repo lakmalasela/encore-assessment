@@ -1,19 +1,25 @@
 <div class="filter-section">
     <div class="filter-row">
         <div class="filter-group">
-            <span class="filter-label">Number of Product:</span>
-            <select class="filter-select" id="perPageSelect">
-                <option value="10">All</option>
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-            </select>
+            <div class="filter-item">
+                <span class="filter-label">Number of Product</span>
+                <span class="filter-separator">|</span>
+                <select class="filter-select" id="perPageSelect">
+                    <option value="10">All</option>
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
             
-            <span class="filter-label ms-3">Total Product:</span>
-            <select class="filter-select">
-                <option value="all">All</option>
-            </select>
+            <div class="filter-item">
+                <span class="filter-label">Total Product</span>
+                <span class="filter-separator">|</span>
+                <select class="filter-select">
+                    <option value="all">All</option>
+                </select>
+            </div>
         </div>
         
         <div class="search-container">
