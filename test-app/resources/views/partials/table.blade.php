@@ -1,3 +1,18 @@
+<style>
+        .inventory-table thead {
+        background-color: #C0C0C0 !important;
+    
+    }
+
+     .inventory-table thead th {
+        background-color: #d9d9d9 !important;
+        color: #000 !important;
+        border-color: #bfbfbf !important;
+        font-weight: 600 !important;
+    }
+</style>
+
+
 <div class="inventory-table">
     <table class="table">
         <thead>
