@@ -7,13 +7,19 @@
     <script>
         // Toggle variant details
         function toggleVariants(productId) {
-            const variantRow = document.getElementById('variants-' + productId);
-            if (variantRow) {
-                if (variantRow.style.display === 'none') {
-                    variantRow.style.display = 'table-row';
-                } else {
-                    variantRow.style.display = 'none';
-                }
+            const variantHeaderRow = document.getElementById('variants-' + productId);
+            const variantItemRows = document.querySelectorAll('[data-parent="' + productId + '"]');
+            
+            if (variantHeaderRow) {
+                const isHidden = variantHeaderRow.style.display === 'none';
+                
+                // Toggle header row
+                variantHeaderRow.style.display = isHidden ? 'table-row' : 'none';
+                
+                // Toggle all variant item rows
+                variantItemRows.forEach(row => {
+                    row.style.display = isHidden ? 'table-row' : 'none';
+                });
             }
         }
         

@@ -1,14 +1,56 @@
 <style>
-        .inventory-table thead {
+    .inventory-table thead {
         background-color: #C0C0C0 !important;
-    
     }
 
-     .inventory-table thead th {
+    .inventory-table thead th {
         background-color: #d9d9d9 !important;
         color: #000 !important;
         border-color: #bfbfbf !important;
         font-weight: 600 !important;
+    }
+
+    /* Variant Row Styles */
+    .variant-header-row {
+        background-color: #f3f4f6 !important;
+    }
+
+    .variant-header-row td {
+        padding: 10px 16px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #6b7280 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: 1px solid #e5e7eb !important;
+    }
+
+    .variant-item-row {
+        background-color: #f9fafb !important;
+    }
+
+    .variant-item-row td {
+        padding: 12px 16px !important;
+        font-size: 13px !important;
+        color: #374151 !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+
+    .variant-item-row:hover {
+        background-color: #f3f4f6 !important;
+    }
+
+    .variant-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .color-indicator {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        flex-shrink: 0;
     }
 </style>
 
@@ -72,38 +114,43 @@
                     </td>
                 </tr>
                 @if(count($product['variants']) > 0)
-                    <tr class="variant-row" id="variants-{{ $product['id'] }}" style="display: none;">
-                        <td colspan="9" class="variant-cell">
-                            <div class="variant-container">
-                                <div class="variant-header">
-                                    <div class="variant-header-cell" style="width: 200px;">Variants</div>
-                                    <div class="variant-header-cell" style="width: 100px;">Size</div>
-                                    <div class="variant-header-cell" style="flex: 1;">Stock</div>
-                                    <div class="variant-header-cell" style="width: 120px;">Prices</div>
-                                    <div class="variant-header-cell" style="width: 120px;">Discount</div>
-                                </div>
-                                @foreach($product['variants'] as $variant)
-                                    <div class="variant-item">
-                                        <div class="variant-name" style="width: 200px;">
-                                            <span class="color-indicator" style="background-color: {{ $variant['color'] }}; {{ $variant['color'] == '#FFFFFF' ? 'border: 1px solid #ddd;' : '' }}"></span>
-                                            {{ $variant['name'] }}
-                                        </div>
-                                        <div class="variant-size" style="width: 100px;">{{ $variant['size'] }}</div>
-                                        <div class="variant-stock" style="flex: 1;">
-                                            {{ $variant['stock'] }}
-                                            <span class="last-update">Last Update - {{ $variant['last_update'] }}</span>
-                                        </div>
-                                        <div class="variant-price" style="width: 120px;">{{ $variant['price'] }}</div>
-                                        <div class="variant-discount" style="width: 120px;">{{ $variant['discount'] }}</div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </td>
+                    <!-- Variant Header Row -->
+                    <tr class="variant-header-row" id="variants-{{ $product['id'] }}" style="display: none;">
+                        <td></td>
+                        <td></td>
+                        <td class="variant-header-cell"><strong>Variants</strong></td>
+                        <td class="variant-header-cell"><strong>Size</strong></td>
+                        <td class="variant-header-cell"><strong>Stock</strong></td>
+                        <td class="variant-header-cell" colspan="2"><strong>Prices</strong></td>
+                        <!-- <td class="variant-header-cell"><strong>Category</strong></td> -->
+                        <td class="variant-header-cell"><strong>Discount</strong></td>
+                        <td></td>
                     </tr>
+                    @foreach($product['variants'] as $variant)
+                        <tr class="variant-item-row" data-parent="{{ $product['id'] }}" style="display: none;">
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="variant-name">
+                                    <span class="color-indicator" style="background-color: {{ $variant['color'] }}; {{ $variant['color'] == '#FFFFFF' ? 'border: 1px solid #ddd;' : '' }}"></span>
+                                    {{ $variant['name'] }}
+                                </div>
+                            </td>
+                            <td>{{ $variant['size'] }}</td>
+                            <td>
+                                <div>{{ $variant['stock'] }}</div>
+                                <span class="last-update">Last Update - {{ $variant['last_update'] }}</span>
+                            </td>
+                            <td colspan="2">{{ $variant['price'] }}</td>
+                            <!-- <td>{{ $product['category'] }}</td> -->
+                            <td>{{ $variant['discount'] }}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
                 @endif
             @empty
                 <tr>
-                    <td colspan="9" class="loading">No products found.</td>
+                    <td colspan="10" class="loading">No products found.</td>
                 </tr>
             @endforelse
         </tbody>
